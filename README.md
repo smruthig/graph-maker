@@ -9,7 +9,7 @@ First, clone the repository.\
 In the project directory, you can run:
 
 #### `npm install`
-This will install the dependencies.\
+This will install the dependencies.
 
 Then, run the following command:
 
