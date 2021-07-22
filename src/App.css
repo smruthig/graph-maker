@@ -5,3 +5,46 @@ body{
   background-size: cover;
   height: 100%;
 }
+
+
+.home{
+  background-image: url('./assets/images/img2_blur.jpg');
+  justify-content: center;
+  border: 1px outset white;
+  text-align: center;
+  text-emphasis: bold;
+  color: aliceblue;
+  padding: 30px;
+  z-index: -1;
+  border-radius: 7px;
+}
+
+
+@media only screen and (min-width: 991px){
+  .home{
+    position: absolute;
+    top: 30%;
+    left: 35%;
+    right: 35%;
+    padding: 40px;
+  }
+}
+
+@media only screen and (min-width: 500px) and (max-width: 991px){
+  .home{
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    right: 20%;
+  }
+}
+
+@media only screen and (max-width: 500px){
+  .home{
+    position: absolute;
+    top: 30%;
+    left: 5%;
+    right: 5%;
+  }
+}
+
