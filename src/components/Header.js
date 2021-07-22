@@ -15,7 +15,7 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                            <LinkContainer to='/'>
+                            <LinkContainer exact to='/'>
                                 <Nav.Link>Home</Nav.Link>
                             </LinkContainer>
                             <LinkContainer to='/piechart'>
