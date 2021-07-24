@@ -1,8 +1,8 @@
-{/* State needs to be global, in App.js, as it is not being preserved */}
-
 import Button from 'react-bootstrap/Button'
 import {useState} from 'react'
 import DataForm from './DataForm'
+
+{/* State needs to be global, in App.js, as it is not being preserved */}
 
 const Home = () => {
     const [start, setStart] = useState(false)
