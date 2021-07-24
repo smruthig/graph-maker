@@ -1,15 +1,29 @@
+{/* State needs to be global, in App.js, as it is not being preserved */}
+
+import Button from 'react-bootstrap/Button'
+import {useState} from 'react'
+import DataForm from './DataForm'
+
 const Home = () => {
+    const [start, setStart] = useState(false)
+    
     return (
         <>
-            <div className="home">
-                <h2 className="home_text">What do we do?</h2>
-                <p>
-                    I will give some mock text here <br/>
-                    for now just to test how it will<br/>
-                    appear on the screen.<br/>
-                    Excited to plot graphs?<br/>
-                </p>
-            </div>
+            { !start ? 
+                (<div className="home">
+                    <h2 className="home_text">What do we do?</h2>
+                    <p>
+                        Have an assignment that requires you to plot graphs?<br/>
+                        GraphMaker will do it for you! <br/>
+                        Just enter the data, and you will have a variety of
+                        customizable graphs,<br/>
+                        ready to go!<br/>
+                    </p>
+                    <Button variant="secondary" onClick={()=>setStart(true)}>Get started</Button>
+                </div>)
+            :
+                <DataForm/>
+            }
         </>
     )
 }

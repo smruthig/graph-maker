@@ -8,9 +8,9 @@ body{
 
 
 .home{
-  background-image: url('./assets/images/img2_blur.jpg');
+  background-image: url('./assets/images/img2.1_blur.jpg');
   justify-content: center;
-  border: 1px outset white;
+  border: 3px inset lightgrey;
   text-align: center;
   text-emphasis: bold;
   color: aliceblue;
@@ -19,13 +19,33 @@ body{
   border-radius: 7px;
 }
 
+.dataForm {
+  background-image: url('./assets/images/img2.2_blur.png');
+  justify-content: center;
+  border: 3px inset lightgrey;
+  padding: 30px;
+  z-index: -1;
+  border-radius: 7px;
+}
+
+.form_label {
+  color: white;
+}
 
 @media only screen and (min-width: 991px){
   .home{
     position: absolute;
-    top: 30%;
+    top: 25%;
     left: 35%;
     right: 35%;
+    padding: 40px;
+  }
+
+  .dataForm{
+    position: absolute;
+    top: 11%;
+    left: 15%;
+    right: 15%;
     padding: 40px;
   }
 }
