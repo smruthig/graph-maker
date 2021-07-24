@@ -2,10 +2,7 @@ import Button from 'react-bootstrap/Button'
 import {useState} from 'react'
 import DataForm from './DataForm'
 
-{/* State needs to be global, in App.js, as it is not being preserved */}
-
-const Home = () => {
-    const [start, setStart] = useState(false)
+const Home = ({start, setStart}) => {
     
     return (
         <>
@@ -19,7 +16,7 @@ const Home = () => {
                         customizable graphs,<br/>
                         ready to go!<br/>
                     </p>
-                    <Button variant="secondary" onClick={()=>setStart(true)}>Get started</Button>
+                    <Button variant="secondary" onClick={setStart}>Get started</Button>
                 </div>)
             :
                 <DataForm/>
