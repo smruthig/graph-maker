@@ -2,10 +2,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 
 import Header from './components/Header'
 import Home from './components/Home'
+import PieChart from './components/PieChart'
 
 function App() {
 
@@ -14,13 +15,14 @@ function App() {
 
   //single vars
   const [sv_graph_title, setSv_graph_title] = useState('')
-  const sv_set_graph_title = (e) => setSv_graph_title(e.target.value)
+  const sv_set_graph_title = (val) => setSv_graph_title(val)
   const [sv_no_of_val, setSv_no_of_val] = useState('')
-  const sv_set_no_of_val = (e) => setSv_no_of_val(e.target.value)
+  const sv_set_no_of_val = (val) => setSv_no_of_val(val)
   const [sv_values, setSv_values] = useState('')
-  const sv_set_values = (e) => setSv_values(e.target.value)
+  const sv_set_values = (val) => setSv_values(val)
   const [sv_labels, setSv_labels] = useState('')
-  const sv_set_labels = (e) => setSv_labels(e.target.value)
+  const sv_set_labels = (val) => setSv_labels(val)
+  
 
   return (
     <div className="App">
@@ -39,7 +41,9 @@ function App() {
               }
             />
           </Route>
-          <Route path='/piechart'></Route>
+          <Route path='/piechart'>
+            <PieChart label={sv_labels} title={sv_graph_title} values={sv_values} no_of_val={sv_no_of_val}/>
+          </Route>
           <Route path='/linegraph'></Route>
         </Switch>
       </Router>

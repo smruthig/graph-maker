@@ -3,6 +3,8 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import {useRef} from 'react'
+import {useHistory} from 'react-router-dom'
+
 
 const SingleVar = ({singleVar}) => {
 
@@ -16,35 +18,44 @@ const SingleVar = ({singleVar}) => {
     const set_labels = singleVar[7];
 
     const err_ref = useRef(null);
+    const hist = useHistory();
 
-    const submit_fn = (e) => {
-        e.preventDefault()
+    const submit_fn = () => {
         let arr_of_val = values.split(',')
-        let arr_of_labels = labels.split(',')
         for (var i in arr_of_val)
             arr_of_val[i] = Number(arr_of_val[i])
         if (arr_of_val.length != no_of_val)
             err_ref.current.innerHTML = "Number of values doesn't match expected number"
-        else
-            err_ref.current.innerHTML = ""  
+        else {
+            err_ref.current.innerHTML = ""
+            hist.push('/piechart')
+        }  
+    }
+
+    const clear_fn = () => {
+        set_graph_title('');
+        set_no_of_val('');
+        set_values('');
+        set_labels('');
+        err_ref.current.innerHTML = ""
     }
 
     return (
         <div>
-            <form onSubmit={submit_fn}>
+            <form>
                 <Row>
-                    <Col>
+                    <Col sm='12' md='6'>
                         <label htmlFor='graph_title'>Title:</label><br/>
                         <input 
                             name='graph_title' 
                             type='text'
                             placeholder='Enter the title' 
                             value={graph_title} 
-                            onChange={(e)=>set_graph_title(e)}
+                            onChange={(e)=>set_graph_title(e.target.value)}
                         />
                     </Col>
                 
-                    <Col>
+                    <Col sm='12' md='6'>
                         <label htmlFor='no_of_val'>Number of values:</label><br/>
                         <input 
                             name='no_of_val' 
@@ -53,7 +64,7 @@ const SingleVar = ({singleVar}) => {
                             required
                             pattern='[0-9]{1,}' 
                             value={no_of_val} 
-                            onChange={(e)=>set_no_of_val(e)}
+                            onChange={(e)=>set_no_of_val(e.target.value)}
                         />
                     </Col>
                 </Row>
@@ -68,7 +79,7 @@ const SingleVar = ({singleVar}) => {
                         required
                         pattern='[0-9]{1,}(\s{0,1},\s{0,1}[0-9]{1,}){0,}'
                         value = {values}
-                        onChange = {(e)=>set_values(e)}
+                        onChange = {(e)=>set_values(e.target.value)}
                     />
                     <p className='err' ref={err_ref}></p>
                     </Col>
@@ -82,13 +93,20 @@ const SingleVar = ({singleVar}) => {
                         type='text'
                         placeholder='Enter comma separated labels'
                         value = {labels}
-                        onChange = {(e)=>set_labels(e)}
+                        onChange = {(e)=>set_labels(e.target.value)}
                     />
                     </Col>
                 </Row>
 
-                <br/>  
-                <Button type='submit'>Sumbit</Button>
+                <br/>
+                <Row> 
+                    <Col> 
+                        <Button variant='success' onClick={submit_fn}>Create</Button>
+                    </Col>
+                    <Col>
+                        <Button variant='danger' onClick={clear_fn}>Clear</Button>
+                    </Col>
+                </Row>
             </form>
         </div>
     )
