@@ -42,6 +42,8 @@ const SingleVar = ({singleVar}) => {
 
     return (
         <div>
+			<h6 style={{color:'white'}}>The following are generated: Pie chart, Doughnut, Radial chart</h6>
+			<br/>
             <form>
                 <Row>
                     <Col sm='12' md='6'>

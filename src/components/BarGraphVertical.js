@@ -1,16 +1,14 @@
-import {Pie} from 'react-chartjs-2'
+import {Bar} from 'react-chartjs-2'
 import '../css/Chart.css'
 
-const PieChart = ({label, title, values, no_of_val}) => {
-    let arr_of_val = values.split(',')
-    let arr_of_labels = label.split(',')
-    for (var i in arr_of_val)
-        arr_of_val[i] = Number(arr_of_val[i])
+const BarGraphVertical = () => {
+    let arr_of_val = [2,3,5,7,5,2,7,4]
+    let arr_of_labels = ['a','dd','ff','ss','gg','ee','qq','hh']
+    let title='title'
 
     return (
         <div className='chart'>
-            {no_of_val>0 ? 
-                <Pie
+                <Bar
                     data={{
                         labels: arr_of_labels,
                         datasets: [{
@@ -35,7 +33,6 @@ const PieChart = ({label, title, values, no_of_val}) => {
                                 '#fa141c'
                             ],
                             data: arr_of_val,
-                            hoverOffset: 4
                         }]
                     }}
 					height={400} 
@@ -46,22 +43,11 @@ const PieChart = ({label, title, values, no_of_val}) => {
                             text: title,
                             fontSize: 20
                         },
-                        legend:{
-                            display: true,
-                            position:'right'
-                        },
-                        radius:'100%',
 						maintainAspectRatio: false,
                     }}
-            />
-             :
-            <center>
-                <br/>
-                <h2>No data to display</h2>
-            </center>
-            }
+                />
         </div>
     )
 }
 
-export default PieChart
+export default BarGraphVertical

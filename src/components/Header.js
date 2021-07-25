@@ -22,8 +22,12 @@ const Header = () => {
                                 <Nav.Link>PieChart</Nav.Link>
                             </LinkContainer>
                             <NavDropdown title="Bar Graph" id="collasible-nav-dropdown">
-                                <NavDropdown.Item href="#bargraph/vertical">Vertical</NavDropdown.Item>
-                                <NavDropdown.Item href="#bargraph/horizontal">Horizontal</NavDropdown.Item>
+                                <LinkContainer exact to='/bargraph/vertical'>
+                                    <NavDropdown.Item>Vertical</NavDropdown.Item>
+                                </LinkContainer>
+                                <LinkContainer exact to='/bargraph/horizontal'>
+                                    <NavDropdown.Item>Horizontal</NavDropdown.Item>
+                                </LinkContainer>
                                 <NavDropdown.Item href="#bargraph/grouped">Grouped</NavDropdown.Item>
                                 <NavDropdown.Divider />
                                 <NavDropdown.Item href="#bargraph/all">View All</NavDropdown.Item>

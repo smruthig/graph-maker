@@ -1,0 +1,37 @@
+.chart{
+  background-color:#ffffffdc;
+	z-index:-1;
+}
+
+@media only screen and (min-width: 991px){
+ 
+    .chart{
+      position: absolute;
+      top: 11%;
+      left: 15%;
+      right: 15%;
+      padding: 40px;
+    }
+  }
+  
+  @media only screen and (min-width: 500px) and (max-width: 991px){
+    .chart{
+      position: absolute;
+      top: 11%;
+      left: 10%;
+      right: 10%;
+      padding: 40px;
+    }
+  }
+  
+  @media only screen and (max-width: 500px){
+  
+    .chart{
+      position: absolute;
+      top: 13%;
+      left: 5%;
+      right: 5%;
+      padding: 40px;
+    }
+  }
+  

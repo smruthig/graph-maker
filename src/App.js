@@ -7,6 +7,8 @@ import {useEffect, useState} from 'react'
 import Header from './components/Header'
 import Home from './components/Home'
 import PieChart from './components/PieChart'
+import BarGraphVertical from './components/BarGraphVertical';
+import BarGraphHorizontal from './components/BarGraphHorizontal';
 
 function App() {
 
@@ -45,6 +47,12 @@ function App() {
             <PieChart label={sv_labels} title={sv_graph_title} values={sv_values} no_of_val={sv_no_of_val}/>
           </Route>
           <Route path='/linegraph'></Route>
+          <Route exact path='/bargraph/vertical'>
+            <BarGraphVertical/>
+          </Route>
+          <Route exact path='/bargraph/horizontal'>
+            <BarGraphHorizontal/>
+          </Route>
         </Switch>
       </Router>
     </div>
