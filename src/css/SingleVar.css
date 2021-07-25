@@ -1,0 +1,15 @@
+input{
+    width: 100%;
+    border-radius: 1px;
+    border: 0px;
+    padding: 5px;
+}
+
+label {
+    color:white;
+    font-size: large;
+}
+
+.err{
+    color: red;
+}
