@@ -1,7 +1,7 @@
-import {Pie} from 'react-chartjs-2'
+import {Doughnut} from 'react-chartjs-2'
 import '../css/Chart.css'
 
-const PieChart = ({label, title, values, no_of_val}) => {
+const DoughnutChart = ({label, title, values, no_of_val}) => {
     let arr_of_val = values.split(',')
     let arr_of_labels = label.split(',')
     for (var i in arr_of_val)
@@ -10,7 +10,7 @@ const PieChart = ({label, title, values, no_of_val}) => {
     return (
         <div className='chart'>
             {no_of_val>0 ? 
-                <Pie
+                <Doughnut
                     data={{
                         labels: arr_of_labels,
                         datasets: [{
@@ -62,4 +62,4 @@ const PieChart = ({label, title, values, no_of_val}) => {
     )
 }
 
-export default PieChart
+export default DoughnutChart

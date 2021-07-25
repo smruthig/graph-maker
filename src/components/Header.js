@@ -18,9 +18,14 @@ const Header = () => {
                             <LinkContainer exact to='/'>
                                 <Nav.Link>Home</Nav.Link>
                             </LinkContainer>
-                            <LinkContainer to='/piechart'>
-                                <Nav.Link>PieChart</Nav.Link>
-                            </LinkContainer>
+                            <NavDropdown title="PieChart" id="collasible-nav-dropdown">
+                                <LinkContainer exact to='/piechart'>
+                                    <NavDropdown.Item>PieChart</NavDropdown.Item>
+                                </LinkContainer>
+                                <LinkContainer exact to='/doughnut'>
+                                    <NavDropdown.Item>Doughnut</NavDropdown.Item>
+                                </LinkContainer>
+                            </NavDropdown>
                             <NavDropdown title="Bar Graph" id="collasible-nav-dropdown">
                                 <LinkContainer exact to='/bargraph/vertical'>
                                     <NavDropdown.Item>Vertical</NavDropdown.Item>
