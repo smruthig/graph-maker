@@ -8,6 +8,7 @@ import Header from './components/Header'
 import Home from './components/Home'
 import PieChart from './components/PieChart'
 import DoughnutChart from './components/DoughnutChart'
+import RadarChart from './components/RadarChart'
 import BarGraphVertical from './components/BarGraphVertical';
 import BarGraphHorizontal from './components/BarGraphHorizontal';
 
@@ -49,6 +50,9 @@ function App() {
           </Route>
           <Route path='/doughnut'>
             <DoughnutChart label={sv_labels} title={sv_graph_title} values={sv_values} no_of_val={sv_no_of_val}/>
+          </Route>
+          <Route path='/radar'>
+            <RadarChart/>
           </Route>
           <Route path='/linegraph'></Route>
           <Route exact path='/bargraph/vertical'>

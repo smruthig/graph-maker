@@ -26,6 +26,9 @@ const Header = () => {
                                     <NavDropdown.Item>Doughnut</NavDropdown.Item>
                                 </LinkContainer>
                             </NavDropdown>
+                            <LinkContainer exact to='/radar'>
+                                <Nav.Link>Radar</Nav.Link>
+                            </LinkContainer>
                             <NavDropdown title="Bar Graph" id="collasible-nav-dropdown">
                                 <LinkContainer exact to='/bargraph/vertical'>
                                     <NavDropdown.Item>Vertical</NavDropdown.Item>
