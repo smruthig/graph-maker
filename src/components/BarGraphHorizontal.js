@@ -5,16 +5,21 @@ const BarGraphHorizontal = (props) => {
     let arr_of_val = props.values.split(',')
     let arr_of_labels = props.label.split(',')
     let title = props.title;
-    let default_labels = [];
 
     if (props.title === '')
         title='Default title'
     for (var i in arr_of_val){
         arr_of_val[i] = Number(arr_of_val[i])
-        default_labels[i] = 'Default label '+i
     }
-    if (props.label === ''){
-        arr_of_labels = default_labels;
+
+    var i = props.no_of_val-arr_of_labels.length
+    if (i){
+        if(props.label === ''){
+            arr_of_labels.shift();
+            i+=1;
+        }
+        for(let x=0;x<i;x++)
+            arr_of_labels.push(`Default ${x}`)
     }
 
     return (
