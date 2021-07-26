@@ -20,7 +20,8 @@ const SingleVar = ({singleVar}) => {
     const err_ref = useRef(null);
     const hist = useHistory();
 
-    const submit_fn = () => {
+    const submit_fn = (event) => {
+        event.preventDefault()
         let arr_of_val = values.split(',')
         for (var i in arr_of_val)
             arr_of_val[i] = Number(arr_of_val[i])
@@ -32,7 +33,8 @@ const SingleVar = ({singleVar}) => {
         }  
     }
 
-    const clear_fn = () => {
+    const clear_fn = (event) => {
+        event.preventDefault();
         set_graph_title('');
         set_no_of_val('');
         set_values('');
@@ -44,7 +46,7 @@ const SingleVar = ({singleVar}) => {
         <div>
 			<h6 style={{color:'white'}}>The following are generated: Pie chart, Doughnut, Radar, Bar Chart (vertical and horizontal), Line Chart</h6>
 			<br/>
-            <form>
+            <form onSubmit={submit_fn}>
                 <Row>
                     <Col sm='12' md='6'>
                         <label htmlFor='graph_title'>Title:</label><br/>
@@ -103,10 +105,10 @@ const SingleVar = ({singleVar}) => {
                 <br/>
                 <Row> 
                     <Col> 
-                        <Button variant='success' type='submit' onClick={submit_fn}>Create</Button>
+                        <Button type='submit' variant='success'>Create</Button>
                     </Col>
                     <Col>
-                        <Button variant='danger' type='button' onClick={clear_fn}>Clear</Button>
+                        <Button type='button' variant='danger' onClick={clear_fn}>Clear</Button>
                     </Col>
                 </Row>
             </form>
