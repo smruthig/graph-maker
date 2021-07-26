@@ -42,7 +42,7 @@ const SingleVar = ({singleVar}) => {
 
     return (
         <div>
-			<h6 style={{color:'white'}}>The following are generated: Pie chart, Doughnut, Radial chart</h6>
+			<h6 style={{color:'white'}}>The following are generated: Pie chart, Doughnut, Radar, Bar Chart (vertical and horizontal), Line Chart</h6>
 			<br/>
             <form>
                 <Row>
@@ -103,10 +103,10 @@ const SingleVar = ({singleVar}) => {
                 <br/>
                 <Row> 
                     <Col> 
-                        <Button variant='success' onClick={submit_fn}>Create</Button>
+                        <Button variant='success' type='submit' onClick={submit_fn}>Create</Button>
                     </Col>
                     <Col>
-                        <Button variant='danger' onClick={clear_fn}>Clear</Button>
+                        <Button variant='danger' type='button' onClick={clear_fn}>Clear</Button>
                     </Col>
                 </Row>
             </form>

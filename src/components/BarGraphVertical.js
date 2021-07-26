@@ -1,13 +1,15 @@
 import {Bar} from 'react-chartjs-2'
 import '../css/Chart.css'
 
-const BarGraphVertical = () => {
-    let arr_of_val = [2,3,5,7,5,2,7,4]
-    let arr_of_labels = ['a','dd','ff','ss','gg','ee','qq','hh']
-    let title='title'
+const BarGraphVertical = ({label, title, values, no_of_val}) => {
+    let arr_of_val = values.split(',')
+    let arr_of_labels = label.split(',')
+    for (var i in arr_of_val)
+        arr_of_val[i] = Number(arr_of_val[i])
 
     return (
         <div className='chart'>
+            {no_of_val>0 ?
                 <Bar
                     data={{
                         labels: arr_of_labels,
@@ -46,6 +48,12 @@ const BarGraphVertical = () => {
 						maintainAspectRatio: false,
                     }}
                 />
+                :
+                <center>
+                    <br/>
+                    <h2>No data to display</h2>
+                </center>
+            }
         </div>
     )
 }

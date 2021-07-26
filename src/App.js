@@ -52,14 +52,14 @@ function App() {
             <DoughnutChart label={sv_labels} title={sv_graph_title} values={sv_values} no_of_val={sv_no_of_val}/>
           </Route>
           <Route path='/radar'>
-            <RadarChart/>
+            <RadarChart label={sv_labels} title={sv_graph_title} values={sv_values} no_of_val={sv_no_of_val}/>
           </Route>
           <Route path='/linegraph'></Route>
           <Route exact path='/bargraph/vertical'>
-            <BarGraphVertical/>
+            <BarGraphVertical label={sv_labels} title={sv_graph_title} values={sv_values} no_of_val={sv_no_of_val}/>
           </Route>
           <Route exact path='/bargraph/horizontal'>
-            <BarGraphHorizontal/>
+            <BarGraphHorizontal label={sv_labels} title={sv_graph_title} values={sv_values} no_of_val={sv_no_of_val}/>
           </Route>
         </Switch>
       </Router>
