@@ -44,7 +44,7 @@ const SingleVar = ({singleVar}) => {
 
     return (
         <div>
-			<h6 style={{color:'white'}}>The following are generated: Pie chart, Doughnut, Radar, Bar Chart (vertical and horizontal), Line Chart</h6>
+			<h6 style={{color:'white'}}>Charts generated: Pie chart, Doughnut, Polar area, Radar, Bar Chart (vertical and horizontal), Line Chart</h6>
 			<br/>
             <form onSubmit={submit_fn}>
                 <Row>
