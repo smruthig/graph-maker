@@ -25,6 +25,9 @@ const Header = () => {
                                 <LinkContainer exact to='/doughnut'>
                                     <NavDropdown.Item>Doughnut</NavDropdown.Item>
                                 </LinkContainer>
+                                <LinkContainer exact to='/polarchart'>
+                                    <NavDropdown.Item>PolarChart</NavDropdown.Item>
+                                </LinkContainer>
                             </NavDropdown>
                             <LinkContainer exact to='/radar'>
                                 <Nav.Link>Radar</Nav.Link>

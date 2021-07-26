@@ -8,6 +8,7 @@ import {useState} from 'react'
 import Header from './components/Header'
 import Home from './components/Home'
 import PieChart from './components/PieChart'
+import PolarChart from './components/PolarChart'
 import DoughnutChart from './components/DoughnutChart'
 import RadarChart from './components/RadarChart'
 import BarGraphVertical from './components/BarGraphVertical';
@@ -53,6 +54,9 @@ function App() {
           </Route>
           <Route path='/doughnut'>
             <DoughnutChart label={sv_labels} title={sv_graph_title} values={sv_values} no_of_val={sv_no_of_val}/>
+          </Route>
+          <Route path='/polarchart'>
+            <PolarChart label={sv_labels} title={sv_graph_title} values={sv_values} no_of_val={sv_no_of_val}/>
           </Route>
           <Route path='/radar'>
             <RadarChart label={sv_labels} title={sv_graph_title} values={sv_values} no_of_val={sv_no_of_val}/>
