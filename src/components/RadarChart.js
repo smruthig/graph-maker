@@ -1,6 +1,5 @@
 import {Radar} from 'react-chartjs-2'
 
-
 const RadarChart = (props) => {
 
   let arr_of_val = props.values.split(',')

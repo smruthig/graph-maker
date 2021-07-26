@@ -1,5 +1,4 @@
 import {Pie} from 'react-chartjs-2'
-import '../css/Chart.css'
 
 const PieChart = (props) => {
     let arr_of_val = props.values.split(',')

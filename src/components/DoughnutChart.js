@@ -1,5 +1,4 @@
 import {Doughnut} from 'react-chartjs-2'
-import '../css/Chart.css'
 
 const DoughnutChart = (props) => {
     let arr_of_val = props.values.split(',')

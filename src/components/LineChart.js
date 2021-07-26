@@ -1,6 +1,7 @@
-import {Bar} from 'react-chartjs-2'
+import { Line } from 'react-chartjs-2';
 
-const BarGraphVertical = (props) => {
+
+const LineChart = (props) => {
     let arr_of_val = props.values.split(',')
     let arr_of_labels = props.label.split(',')
     let title = props.title;
@@ -24,30 +25,13 @@ const BarGraphVertical = (props) => {
     return (
         <div className='chart'>
             {props.no_of_val>0 ?
-                <Bar
+                <Line
                     data={{
                         labels: arr_of_labels,
                         datasets: [{
                             label: title,
-                            backgroundColor: [
-                                '#fcba03',
-                                '#f54745',
-                                '#f59527',
-                                '#b6cc0c',
-                                '#08a642',
-                                '#37e6a3',
-                                '#07f7cf',
-                                '#0ba4bf',
-                                '#09519e',
-                                '#7436f7',
-                                '#b561fa',
-                                '#db77f7',
-                                '#f54df7',
-                                '#f58ed8',
-                                '#fa7db9',
-                                '#f7436d',
-                                '#fa141c'
-                            ],
+                            backgroundColor: 'rgb(255, 99, 132)',
+                            borderColor: 'rgba(255, 99, 132, 0.5)',
                             data: arr_of_val,
                         }]
                     }}
@@ -59,7 +43,16 @@ const BarGraphVertical = (props) => {
                             text: title,
                             fontSize: 20
                         },
-						maintainAspectRatio: false,
+                        maintainAspectRatio: false,
+                        scales: {
+                            yAxes: [
+                              {
+                                ticks: {
+                                  beginAtZero: true,
+                                },
+                              },
+                            ],
+                        },
                     }}
                 />
                 :
@@ -73,4 +66,4 @@ const BarGraphVertical = (props) => {
 }
 
 
-export default BarGraphVertical
+export default LineChart

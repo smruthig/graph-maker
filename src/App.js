@@ -1,8 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
+import './css/Chart.css'
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import {useEffect, useState} from 'react'
+import {useState} from 'react'
 
 import Header from './components/Header'
 import Home from './components/Home'
@@ -11,6 +12,8 @@ import DoughnutChart from './components/DoughnutChart'
 import RadarChart from './components/RadarChart'
 import BarGraphVertical from './components/BarGraphVertical';
 import BarGraphHorizontal from './components/BarGraphHorizontal';
+import LineChart from './components/LineChart';
+import ScatterPlot from './components/ScatterPlot';
 
 function App() {
 
@@ -54,7 +57,12 @@ function App() {
           <Route path='/radar'>
             <RadarChart label={sv_labels} title={sv_graph_title} values={sv_values} no_of_val={sv_no_of_val}/>
           </Route>
-          <Route path='/linegraph'></Route>
+          <Route path='/linechart'>
+            <LineChart label={sv_labels} title={sv_graph_title} values={sv_values} no_of_val={sv_no_of_val}/>
+          </Route>
+          <Route path='/scatterplot'>
+            <ScatterPlot label={sv_labels} title={sv_graph_title} values={sv_values} no_of_val={sv_no_of_val}/>
+          </Route>
           <Route exact path='/bargraph/vertical'>
             <BarGraphVertical label={sv_labels} title={sv_graph_title} values={sv_values} no_of_val={sv_no_of_val}/>
           </Route>

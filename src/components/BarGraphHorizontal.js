@@ -1,5 +1,4 @@
 import {Bar} from 'react-chartjs-2'
-import '../css/Chart.css'
 
 const BarGraphHorizontal = (props) => {
     let arr_of_val = props.values.split(',')

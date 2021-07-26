@@ -43,6 +43,9 @@ const Header = () => {
                             <LinkContainer to='/linechart'>
                                 <Nav.Link>LineChart</Nav.Link>
                             </LinkContainer>
+                            <LinkContainer to='/scatterplot'>
+                                <Nav.Link>ScatterPlot</Nav.Link>
+                            </LinkContainer>
                         </Nav>
                         <Nav>
                             <Nav.Link href="#about">About</Nav.Link>
