@@ -1,49 +1,54 @@
 import { Scatter } from 'react-chartjs-2';
 
+const ScatterPlot = (props) => {
 
-const rand = () => Math.round(Math.random() * 20 - 10);
+  let val_x = props.values_x.split(',')
+  let val_y = props.values_y.split(',')
+  let title = props.title;
+  let data = [];
 
-const data = {
-  datasets: [
-    {
-      label: 'A dataset',
-      data: [
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-      ],
-      backgroundColor: 'rgba(255, 99, 132, 1)',
-    },
-  ],
-};
+  if (props.title === '')
+    title='Default title'
 
-const options = {
-  scales: {
-    yAxes: [
-      {
-        ticks: {
-          beginAtZero: true,
-        },
-      },
-    ],
-  },
-};
+  for (var i in val_x){
+    val_x[i] = Number(val_x[i])
+    val_y[i] = Number(val_y[i])
+    data.push({x: val_x[i], y: val_y[i]})
+  }
 
-const ScatterPlot = () => (
-  <div className='chart'>
-    <Scatter data={data} options={options} />
-  </div>
-);
+  return (
+    <div className='chart'>
+      {props.no_of_val ? 
+        <Scatter 
+          data={{
+            datasets: [
+              {
+                label: title,
+                data: data,
+                backgroundColor: 'rgba(255, 99, 132, 1)',
+              },
+            ],
+          }}
+          options={{
+            scales: {
+              yAxes: [
+                {
+                  ticks: {
+                    beginAtZero: true,
+                  },
+                },
+              ],
+            },
+          }}
+        />
+        :
+        <center>
+          <br/>
+          <h2>No data to display</h2>
+        </center>
+      }
+    </div>
+  )
+}
 
-export default ScatterPlot;
+export default ScatterPlot

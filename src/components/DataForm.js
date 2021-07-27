@@ -4,7 +4,7 @@ import SingleVar from './SingleVar'
 import TwoVar from './TwoVar'
 import MultiVar from './MultiVar'
 
-const DataForm = ({singleVar}) => {
+const DataForm = ({singleVar, twoVar}) => {
     return (
         <div className="dataForm">
             <Tabs defaultActiveKey="twovar" id="uncontrolled-tab-example" className="mb-3" >
@@ -14,7 +14,9 @@ const DataForm = ({singleVar}) => {
                     />
                 </Tab>
                 <Tab eventKey="twovar" title="Two variables">
-                    <TwoVar/>
+                    <TwoVar 
+                        twoVar = {twoVar}
+                    />
                 </Tab>
                 <Tab eventKey="multivar" title="Multiple variables">
                     <MultiVar/>

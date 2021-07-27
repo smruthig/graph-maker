@@ -11,7 +11,7 @@ const PieChart = (props) => {
         arr_of_val[i] = Number(arr_of_val[i])
     }
 
-    var i = props.no_of_val-arr_of_labels.length
+    i = props.no_of_val-arr_of_labels.length
     if (i){
         if(props.label === ''){
             arr_of_labels.shift();

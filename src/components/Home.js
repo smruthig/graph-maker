@@ -1,7 +1,7 @@
 import Button from 'react-bootstrap/Button'
 import DataForm from './DataForm'
 
-const Home = ({start, setStart, singleVar}) => {
+const Home = ({start, setStart, singleVar, twoVar}) => {
     
     return (
         <>
@@ -20,6 +20,7 @@ const Home = ({start, setStart, singleVar}) => {
             :
                 <DataForm 
                     singleVar = {singleVar}
+                    twoVar = {twoVar}
                 />
             }
         </>

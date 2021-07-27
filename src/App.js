@@ -30,6 +30,16 @@ function App() {
   const sv_set_values = (val) => setSv_values(val)
   const [sv_labels, setSv_labels] = useState('')
   const sv_set_labels = (val) => setSv_labels(val)
+
+  //two vars
+  const [tv_graph_title, setTv_graph_title] = useState('')
+  const tv_set_graph_title = (val) => setTv_graph_title(val)
+  const [tv_no_of_val, setTv_no_of_val] = useState('')
+  const tv_set_no_of_val = (val) => setTv_no_of_val(val)
+  const [tv_values_x, setTv_values_x] = useState('')
+  const tv_set_values_x = (val) => setTv_values_x(val)
+  const [tv_values_y, setTv_values_y] = useState('')
+  const tv_set_values_y = (val) => setTv_values_y(val)
   
 
   return (
@@ -46,6 +56,12 @@ function App() {
                 sv_no_of_val, sv_set_no_of_val,
                 sv_values, sv_set_values,
                 sv_labels, sv_set_labels]
+              }
+              twoVar={
+                [tv_graph_title, tv_set_graph_title, 
+                tv_no_of_val, tv_set_no_of_val,
+                tv_values_x, tv_set_values_x,
+                tv_values_y, tv_set_values_y]
               }
             />
           </Route>
@@ -65,7 +81,7 @@ function App() {
             <LineChart label={sv_labels} title={sv_graph_title} values={sv_values} no_of_val={sv_no_of_val}/>
           </Route>
           <Route path='/scatterplot'>
-            <ScatterPlot label={sv_labels} title={sv_graph_title} values={sv_values} no_of_val={sv_no_of_val}/>
+            <ScatterPlot values_x={tv_values_x} title={tv_graph_title} values_y={tv_values_y} no_of_val={tv_no_of_val}/>
           </Route>
           <Route exact path='/bargraph/vertical'>
             <BarGraphVertical label={sv_labels} title={sv_graph_title} values={sv_values} no_of_val={sv_no_of_val}/>
