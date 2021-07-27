@@ -6,7 +6,7 @@ import {useRef} from 'react'
 import {useHistory} from 'react-router-dom'
 
 
-const TwoVar = ({twoVar}) => {
+const TwoVar = ({twoVar, setLastUpdated}) => {
 
     const graph_title = twoVar[0];
     const set_graph_title = twoVar[1];
@@ -16,7 +16,6 @@ const TwoVar = ({twoVar}) => {
     const set_values_x = twoVar[5];
     const values_y = twoVar[6];
     const set_values_y = twoVar[7];
-
     const errx_ref = useRef(null);
     const erry_ref = useRef(null);
     const hist = useHistory();
@@ -27,6 +26,8 @@ const TwoVar = ({twoVar}) => {
         let val_y = values_y.split(',')
         for (var i in val_x){
             val_x[i] = Number(val_x[i])
+        }
+        for (i in val_y){
             val_y[i] = Number(val_y[i])
         }
         if (val_x.length != no_of_val)
@@ -34,6 +35,7 @@ const TwoVar = ({twoVar}) => {
         else if (val_y.length != no_of_val)
             erry_ref.current.innerHTML = "Number of values doesn't match expected number"
         else {
+            setLastUpdated('twoVar')
             errx_ref.current.innerHTML = ""
             erry_ref.current.innerHTML = ""
             hist.push('/scatterplot')
@@ -52,7 +54,7 @@ const TwoVar = ({twoVar}) => {
 
     return (
         <div>
-			<h6 style={{color:'white'}}>Charts generated: Scatter Plot</h6>
+			<h6 style={{color:'white'}}>Charts generated: Line chart, Scatter Plot</h6>
 			<br/>
             <form onSubmit={submit_fn}>
                 <Row>
@@ -96,7 +98,6 @@ const TwoVar = ({twoVar}) => {
                     <p className='err' ref={errx_ref}></p>
                     </Col>
                 </Row>
-                <br/>
                 <Row>
                     <Col lg={true}>
                     <label htmlFor="values_y">Y values:</label><br/>

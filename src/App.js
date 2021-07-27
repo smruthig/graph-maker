@@ -15,11 +15,14 @@ import BarGraphVertical from './components/BarGraphVertical';
 import BarGraphHorizontal from './components/BarGraphHorizontal';
 import LineChart from './components/LineChart';
 import ScatterPlot from './components/ScatterPlot';
+import LineChart_2 from './components/LineChart_2';
 
 function App() {
 
   const [start, setStart] = useState(false)
   const setStart_fn = () => setStart(true)
+  const [lastUpdated, setLastUpdated] = useState('')
+  const setLastUpdated_fn = (name) => setLastUpdated(name)
 
   //single vars
   const [sv_graph_title, setSv_graph_title] = useState('')
@@ -51,6 +54,7 @@ function App() {
             <Home 
               start={start} 
               setStart={setStart_fn}
+              setLastUpdated = {setLastUpdated_fn}
               singleVar={
                 [sv_graph_title, sv_set_graph_title, 
                 sv_no_of_val, sv_set_no_of_val,
@@ -78,7 +82,11 @@ function App() {
             <RadarChart label={sv_labels} title={sv_graph_title} values={sv_values} no_of_val={sv_no_of_val}/>
           </Route>
           <Route path='/linechart'>
-            <LineChart label={sv_labels} title={sv_graph_title} values={sv_values} no_of_val={sv_no_of_val}/>
+            {lastUpdated === 'singleVar' ?
+              <LineChart label={sv_labels} title={sv_graph_title} values={sv_values} no_of_val={sv_no_of_val}/>
+            :
+              <LineChart_2 values_x={tv_values_x} title={tv_graph_title} values_y={tv_values_y} no_of_val={tv_no_of_val}/>
+            }
           </Route>
           <Route path='/scatterplot'>
             <ScatterPlot values_x={tv_values_x} title={tv_graph_title} values_y={tv_values_y} no_of_val={tv_no_of_val}/>

@@ -6,7 +6,7 @@ import {useRef} from 'react'
 import {useHistory} from 'react-router-dom'
 
 
-const SingleVar = ({singleVar}) => {
+const SingleVar = ({singleVar, setLastUpdated}) => {
 
     const graph_title = singleVar[0];
     const set_graph_title = singleVar[1];
@@ -28,6 +28,7 @@ const SingleVar = ({singleVar}) => {
         if (arr_of_val.length != no_of_val)
             err_ref.current.innerHTML = "Number of values doesn't match expected number"
         else {
+            setLastUpdated('singleVar')
             err_ref.current.innerHTML = ""
             hist.push('/piechart')
         }  
@@ -88,7 +89,6 @@ const SingleVar = ({singleVar}) => {
                     <p className='err' ref={err_ref}></p>
                     </Col>
                 </Row>
-                <br/>
                 <Row>
                     <Col lg={true}>
                     <label htmlFor="labels">Labels:</label><br/>

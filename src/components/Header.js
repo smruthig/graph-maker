@@ -50,10 +50,10 @@ const Header = () => {
                                 <Nav.Link>ScatterPlot</Nav.Link>
                             </LinkContainer>
                         </Nav>
-                        <Nav>
+                        {/* <Nav>
                             <Nav.Link href="#about">About</Nav.Link>
                             <Nav.Link href="#contact">Contact Us</Nav.Link>
-                        </Nav>
+                        </Nav> */}
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
