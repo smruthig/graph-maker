@@ -6,6 +6,12 @@ body{
   height: 100%;
 }
 
+@media only screen and (max-width: 500px){
+  body{
+    background-image: url('./assets/images/img2_mobile.png');
+  }
+}
+
 
 .home{
   background-image: url('./assets/images/img2.1_blur.jpg');

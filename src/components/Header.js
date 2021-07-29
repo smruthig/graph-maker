@@ -39,7 +39,9 @@ const Header = () => {
                                 <LinkContainer exact to='/bargraph/horizontal'>
                                     <NavDropdown.Item>Horizontal</NavDropdown.Item>
                                 </LinkContainer>
-                                <NavDropdown.Item href="#bargraph/grouped">Grouped</NavDropdown.Item>
+                                <LinkContainer exact to='/bargraph/grouped'>
+                                    <NavDropdown.Item>Grouped</NavDropdown.Item>
+                                </LinkContainer>
                                 <NavDropdown.Divider />
                                 <NavDropdown.Item href="#bargraph/all">View All</NavDropdown.Item>
                             </NavDropdown>
@@ -50,10 +52,13 @@ const Header = () => {
                                 <Nav.Link>ScatterPlot</Nav.Link>
                             </LinkContainer>
                         </Nav>
-                        {/* <Nav>
-                            <Nav.Link href="#about">About</Nav.Link>
-                            <Nav.Link href="#contact">Contact Us</Nav.Link>
-                        </Nav> */}
+                        <Nav>
+                            {/* <Nav.Link href="#about">About</Nav.Link>
+                            <Nav.Link href="#contact">Contact Us</Nav.Link> */}
+                            <LinkContainer to='#'>
+                                <Nav.Link>Animations</Nav.Link>
+                            </LinkContainer>
+                        </Nav>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
