@@ -1,6 +1,6 @@
 import {Bar} from 'react-chartjs-2'
 
-const BarGraphHorizontal = (props) => {
+const BarGraph = (props) => {
     let arr_of_val = props.values.split(',')
     let arr_of_labels = props.label.split(',')
     let title = props.title;
@@ -28,7 +28,7 @@ const BarGraphHorizontal = (props) => {
                     data={{
                         labels: arr_of_labels,
                         datasets: [{
-                            axis:'y',
+                            axis:props.axis,
                             label: title,
                             backgroundColor: [
                                 '#fcba03',
@@ -55,7 +55,7 @@ const BarGraphHorizontal = (props) => {
 					height={400} 
                     width={400}
                     options={{
-                        indexAxis:'y',
+                        indexAxis:props.axis,
                         title:{
                             display: true,
                             text: title,
@@ -74,4 +74,4 @@ const BarGraphHorizontal = (props) => {
     )
 }
 
-export default BarGraphHorizontal
+export default BarGraph

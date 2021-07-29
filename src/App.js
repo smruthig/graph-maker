@@ -11,8 +11,7 @@ import PieChart from './components/PieChart'
 import PolarChart from './components/PolarChart'
 import DoughnutChart from './components/DoughnutChart'
 import RadarChart from './components/RadarChart'
-import BarGraphVertical from './components/BarGraphVertical';
-import BarGraphHorizontal from './components/BarGraphHorizontal';
+import BarGraph from './components/BarGraph';
 import BarGraphGrouped from './components/BarGraphGrouped';
 import LineChart from './components/LineChart';
 import ScatterPlot from './components/ScatterPlot';
@@ -93,10 +92,10 @@ function App() {
             <ScatterPlot values_x={tv_values_x} title={tv_graph_title} values_y={tv_values_y} no_of_val={tv_no_of_val}/>
           </Route>
           <Route exact path='/bargraph/vertical'>
-            <BarGraphVertical label={sv_labels} title={sv_graph_title} values={sv_values} no_of_val={sv_no_of_val}/>
+            <BarGraph axis='x' label={sv_labels} title={sv_graph_title} values={sv_values} no_of_val={sv_no_of_val}/>
           </Route>
           <Route exact path='/bargraph/horizontal'>
-            <BarGraphHorizontal label={sv_labels} title={sv_graph_title} values={sv_values} no_of_val={sv_no_of_val}/>
+            <BarGraph axis='y' label={sv_labels} title={sv_graph_title} values={sv_values} no_of_val={sv_no_of_val}/>
           </Route>
           <Route exact path='/bargraph/grouped'>
             <BarGraphGrouped/>
