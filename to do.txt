@@ -1,2 +1,0 @@
-//optimise bar hori and verti
-//add graph title and data title separately
