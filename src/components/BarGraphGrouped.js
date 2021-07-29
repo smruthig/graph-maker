@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button'
 import Modal_SingleVar from './Modal_SingleVar'
 import BarGraphGroupedInner from './BarGraphGroupedInner'
 
-const BarGraphGrouped = () => {
+const BarGraphGrouped = (props) => {
 
     //for modal
     const [fullscreen, setFullscreen] = useState(true);
@@ -15,33 +15,19 @@ const BarGraphGrouped = () => {
         setShow(true);
     }
 
-    //for data
-    const [no_of_sets, setNo_of_sets] = useState(0)
-    const set_no_of_sets = () => setNo_of_sets(no_of_sets + 1)
-    const [no_of_val, setNo_of_val] = useState('')
-    const set_no_of_val = (n) => setNo_of_val(n)
-    const [val, setVal] = useState([])
-    const set_val = (arr) => setVal([...val, arr])
-    const [label, setLabel] = useState([])
-    const set_label = (arr) => setLabel(arr)
-    const [title, setTitle] = useState('')
-    const set_title = (t) => setTitle(t)
-    const [data_title, setData_title] = useState([])
-    const set_data_title = (t) => setData_title([...data_title,t])
-
 
     return (
         <div className='chart'>
             { 
-                no_of_sets ?
+                props.mv_no_of_sets ?
                     <>
                         <BarGraphGroupedInner
-                            no_of_sets={no_of_sets}
-                            no_of_val={no_of_val}
-                            val={val}
-                            label={label}
-                            title={title}
-                            data_title={data_title}
+                            no_of_sets={props.mv_no_of_sets}
+                            no_of_val={props.mv_no_of_val}
+                            val={props.mv_val}
+                            label={props.mv_label}
+                            title={props.mv_title}
+                            data_title={props.mv_data_title}
                         />
                     </>
                 :
@@ -63,17 +49,17 @@ const BarGraphGrouped = () => {
                     setShow={set_Show} 
                     fullscreen={fullscreen} 
 
-                    setNo_of_sets={set_no_of_sets}
-                    no_of_val = {no_of_val}
-                    setNo_of_val = {set_no_of_val}
-                    val = {val}
-                    setVal = {set_val}
-                    label = {label}
-                    setLabel = {set_label}
-                    title={title}
-                    setTitle = {set_title}
-                    data_title={data_title}
-                    setData_title={set_data_title}
+                    setNo_of_sets={props.mv_set_no_of_sets}
+                    no_of_val = {props.mv_no_of_val}
+                    setNo_of_val = {props.mv_set_no_of_val}
+                    val = {props.mv_val}
+                    setVal = {props.mv_set_val}
+                    label = {props.mv_label}
+                    setLabel = {props.mv_set_label}
+                    title={props.mv_title}
+                    setTitle = {props.mv_set_title}
+                    data_title={props.mv_data_title}
+                    setData_title={props.mv_set_data_title}
                 />
             </center>
         </div>

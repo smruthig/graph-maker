@@ -43,6 +43,20 @@ function App() {
   const tv_set_values_x = (val) => setTv_values_x(val)
   const [tv_values_y, setTv_values_y] = useState('')
   const tv_set_values_y = (val) => setTv_values_y(val)
+
+  //multi var
+  const [mv_no_of_sets, setMv_no_of_sets] = useState(0)
+  const mv_set_no_of_sets = () => setMv_no_of_sets(mv_no_of_sets + 1)
+  const [mv_no_of_val, setMv_no_of_val] = useState('')
+  const mv_set_no_of_val = (n) => setMv_no_of_val(n)
+  const [mv_val, setMv_Val] = useState([])
+  const mv_set_val = (arr) => setMv_Val([...mv_val, arr])
+  const [mv_label, setMv_Label] = useState([])
+  const mv_set_label = (arr) => setMv_Label(arr)
+  const [mv_title, setMv_Title] = useState('')
+  const mv_set_title = (t) => setMv_Title(t)
+  const [mv_data_title, setMv_data_title] = useState([])
+  const mv_set_data_title = (t) => setMv_data_title([...mv_data_title,t])
   
 
   return (
@@ -98,7 +112,20 @@ function App() {
             <BarGraph axis='y' label={sv_labels} title={sv_graph_title} values={sv_values} no_of_val={sv_no_of_val}/>
           </Route>
           <Route exact path='/bargraph/grouped'>
-            <BarGraphGrouped/>
+            <BarGraphGrouped
+              mv_no_of_sets = {mv_no_of_sets}
+              mv_set_no_of_sets = {mv_set_no_of_sets}
+              mv_no_of_val = {mv_no_of_val}
+              mv_set_no_of_val = {mv_set_no_of_val}
+              mv_val = {mv_val}
+              mv_set_val = {mv_set_val}
+              mv_label = {mv_label}
+              mv_set_label={mv_set_label}
+              mv_title = {mv_title}
+              mv_set_title = {mv_set_title}
+              mv_data_title = {mv_data_title}
+              mv_set_data_title = {mv_set_data_title}
+            />
           </Route>
         </Switch>
       </Router>

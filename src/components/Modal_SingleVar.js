@@ -14,9 +14,7 @@ const Modal_SingleVar = (props) => {
 
     const clear_fn = (event) => {
         event.preventDefault();
-        props.setData_title('')
         setCurr_title('')
-        props.setVal('');
         setCurr_val('');
         err_ref1.current.innerHTML = ""
         err_ref2.current.innerHTML = ""
