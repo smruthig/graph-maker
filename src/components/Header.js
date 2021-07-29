@@ -39,11 +39,10 @@ const Header = () => {
                                 <LinkContainer exact to='/bargraph/horizontal'>
                                     <NavDropdown.Item>Horizontal</NavDropdown.Item>
                                 </LinkContainer>
+                                <NavDropdown.Divider />
                                 <LinkContainer exact to='/bargraph/grouped'>
                                     <NavDropdown.Item>Grouped</NavDropdown.Item>
                                 </LinkContainer>
-                                <NavDropdown.Divider />
-                                <NavDropdown.Item href="#bargraph/all">View All</NavDropdown.Item>
                             </NavDropdown>
                             <LinkContainer to='/linechart'>
                                 <Nav.Link>LineChart</Nav.Link>

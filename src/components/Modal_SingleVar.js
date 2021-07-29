@@ -7,31 +7,45 @@ import {useRef, useState} from 'react'
 
 const Modal_SingleVar = (props) => {
 
-    const err_ref = useRef(null);
+    const err_ref1 = useRef(null);
+    const err_ref2 = useRef(null);
     const [curr_val, setCurr_val] = useState('')
-    const [curr_label, setCurr_label] = useState('')
+    const [curr_title, setCurr_title] = useState('')
 
     const clear_fn = (event) => {
         event.preventDefault();
-        props.setTitle('');
-        props.setNo_of_val('');
+        props.setData_title('')
+        setCurr_title('')
         props.setVal('');
         setCurr_val('');
-        props.setLabel('');
-        setCurr_label('');
-        err_ref.current.innerHTML = ""
+        err_ref1.current.innerHTML = ""
+        err_ref2.current.innerHTML = ""
     }
 
     const submit_fn = (event) => {
         event.preventDefault()
+        let flag = false
+        for(var i in props.data_title)
+        {
+            if (props.data_title[i] === curr_title){
+                flag = true;
+                break;
+            }
+        }
         let arr_of_val = curr_val.split(',')
-        for (var i in arr_of_val)
+        for (i in arr_of_val)
             arr_of_val[i] = Number(arr_of_val[i])
         if (arr_of_val.length != props.no_of_val)
-            err_ref.current.innerHTML = "Number of values doesn't match expected number"
+            err_ref1.current.innerHTML = "Number of values doesn't match expected number"
+        else if (flag){
+            err_ref2.current.innerHTML = "Dataset of this name exists"
+        }
         else {
-            err_ref.current.innerHTML = ""
+            err_ref1.current.innerHTML = ""
+            err_ref2.current.innerHTML = ""
             props.setNo_of_sets()
+            props.setVal(arr_of_val)
+            props.setData_title(curr_title)
             props.setShow(false)
         }  
     }
@@ -45,8 +59,8 @@ const Modal_SingleVar = (props) => {
                 <Modal.Body>
                     <form onSubmit={submit_fn}>
                         <Row>
-                            <Col sm='12' md='6'>
-                                <label className='modal_label' htmlFor='graph_title'>Title:</label><br/>
+                            <Col>
+                                <label className='modal_label' htmlFor='graph_title'>Graph Title:</label><br/>
                                 <input 
                                     name='graph_title'
                                     className='modal_inp' 
@@ -55,6 +69,23 @@ const Modal_SingleVar = (props) => {
                                     value={props.title} 
                                     onChange={(e)=>props.setTitle(e.target.value)}
                                 />
+                            </Col>
+                        </Row>
+                        <br/>
+                        <Row>
+                            <Col sm='12' md='6'>
+                                <label className='modal_label' htmlFor='dataset_title'>Dataset Title:</label><br/>
+                                <input 
+                                    name='dataset_title'
+                                    className='modal_inp' 
+                                    type='text'
+                                    placeholder='Enter the title' 
+                                    value={curr_title} 
+                                    onChange={(e)=>{
+                                        setCurr_title(e.target.value)
+                                    }}
+                                />
+                                <p className='err' ref={err_ref2}></p>
                             </Col>
                         
                             <Col sm='12' md='6'>
@@ -71,7 +102,6 @@ const Modal_SingleVar = (props) => {
                                 />
                             </Col>
                         </Row>
-                        <br/>
                         <Row>
                             <Col lg={true}>
                             <label className='modal_label' htmlFor="values">Values:</label><br/>
@@ -85,10 +115,9 @@ const Modal_SingleVar = (props) => {
                                 value = {curr_val}
                                 onChange = {(e)=>{
                                     setCurr_val(e.target.value)
-                                    props.setVal(e.target.value)
                                 }}
                             />
-                            <p className='err' ref={err_ref}></p>
+                            <p className='err' ref={err_ref1}></p>
                             </Col>
                         </Row>
                         <Row>
@@ -99,10 +128,9 @@ const Modal_SingleVar = (props) => {
                                 className='modal_inp'
                                 type='text'
                                 placeholder='Enter comma separated labels'
-                                value = {curr_label}
+                                value = {props.label}
                                 onChange = {(e)=>{
-                                    setCurr_label(e.target.value)
-                                    props.setLabel(e.target.value)
+                                    props.setLabel(e.target.value.split(','))
                                 }}
                             />
                             </Col>

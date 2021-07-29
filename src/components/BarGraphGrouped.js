@@ -1,12 +1,12 @@
 import {useState} from 'react';
 import Button from 'react-bootstrap/Button'
 import Modal_SingleVar from './Modal_SingleVar'
+import BarGraphGroupedInner from './BarGraphGroupedInner'
 
 const BarGraphGrouped = () => {
 
     //for modal
     const [fullscreen, setFullscreen] = useState(true);
-    const set_Fullscreen = (str) => setFullscreen(str)
     const [show, setShow] = useState(false);
     const set_Show = (str) => setShow(str)
     //for modal
@@ -17,15 +17,17 @@ const BarGraphGrouped = () => {
 
     //for data
     const [no_of_sets, setNo_of_sets] = useState(0)
-    const set_no_of_sets = (no_of_sets) => setNo_of_sets(no_of_sets + 1)
+    const set_no_of_sets = () => setNo_of_sets(no_of_sets + 1)
     const [no_of_val, setNo_of_val] = useState('')
     const set_no_of_val = (n) => setNo_of_val(n)
     const [val, setVal] = useState([])
     const set_val = (arr) => setVal([...val, arr])
     const [label, setLabel] = useState([])
-    const set_label = (arr) => setLabel([...label, arr])
+    const set_label = (arr) => setLabel(arr)
     const [title, setTitle] = useState('')
     const set_title = (t) => setTitle(t)
+    const [data_title, setData_title] = useState([])
+    const set_data_title = (t) => setData_title([...data_title,t])
 
 
     return (
@@ -33,6 +35,14 @@ const BarGraphGrouped = () => {
             { 
                 no_of_sets ?
                     <>
+                        <BarGraphGroupedInner
+                            no_of_sets={no_of_sets}
+                            no_of_val={no_of_val}
+                            val={val}
+                            label={label}
+                            title={title}
+                            data_title={data_title}
+                        />
                     </>
                 :
                 <center>
@@ -62,6 +72,8 @@ const BarGraphGrouped = () => {
                     setLabel = {set_label}
                     title={title}
                     setTitle = {set_title}
+                    data_title={data_title}
+                    setData_title={set_data_title}
                 />
             </center>
         </div>
