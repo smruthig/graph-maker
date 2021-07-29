@@ -2,6 +2,9 @@ import {useState} from 'react';
 import Button from 'react-bootstrap/Button'
 import Modal_SingleVar from './Modal_SingleVar'
 import BarGraphGroupedInner from './BarGraphGroupedInner'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import { Container } from 'react-bootstrap';
 
 const BarGraphGrouped = (props) => {
 
@@ -36,14 +39,20 @@ const BarGraphGrouped = (props) => {
                     <h2>No data to display</h2>
                 </center> 
             }
+            <br/>
+
+            <Container> 
+                <Row className="justify-content-md-center"> 
+                    <Col> 
+                        <Button variant='success' onClick={() => handleShow('sm-down')}>Add data</Button>                    
+                    </Col>
+                    <Col>
+                        <Button type='button' variant='danger' onClick={props.clearall}>Clear</Button>
+                    </Col>
+                </Row>
+            </Container>
+
             <center>
-                <br/>
-                <Button 
-                    variant='success' 
-                    className="me-2" 
-                    onClick={() => handleShow('sm-down')}>
-                        Add data
-                </Button>
                 <Modal_SingleVar 
                     show={show}  
                     setShow={set_Show} 

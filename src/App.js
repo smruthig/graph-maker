@@ -57,6 +57,14 @@ function App() {
   const mv_set_title = (t) => setMv_Title(t)
   const [mv_data_title, setMv_data_title] = useState([])
   const mv_set_data_title = (t) => setMv_data_title([...mv_data_title,t])
+  const clear = () => {
+    setMv_no_of_sets(0)
+    setMv_no_of_val('')
+    setMv_Val([])
+    setMv_Label([])
+    setMv_Title('')
+    setMv_data_title([])
+  }
   
 
   return (
@@ -125,6 +133,7 @@ function App() {
               mv_set_title = {mv_set_title}
               mv_data_title = {mv_data_title}
               mv_set_data_title = {mv_set_data_title}
+              clearall={clear}
             />
           </Route>
         </Switch>
