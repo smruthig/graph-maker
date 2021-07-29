@@ -1,4 +1,5 @@
 import {Bar} from 'react-chartjs-2'
+import {useEffect, useState} from 'react'
 
 const BarGraphGroupedInner = (props) => {
     
@@ -8,7 +9,7 @@ const BarGraphGroupedInner = (props) => {
         '#b561fa','#db77f7','#f54df7','#f58ed8','#fa7db9','#f7436d','#fa141c'
     ]
 
-    let datasets = []
+    let datasets=[]
     for(var x=0;x<props.no_of_sets;x++)
     {
         let o = new Object()
@@ -24,6 +25,34 @@ const BarGraphGroupedInner = (props) => {
         datasets: datasets
     }
 
+    const [clickedDataset, setClickedDataset] = useState('');
+    const [clickedElement, setClickedElement] = useState('');
+    const [clicked, setClicked] = useState(0)
+    const [ele, setEle] = useState()
+    
+    const getElementAtEvent = element => {
+        if (!element.length) return;
+        else 
+            setClicked(clicked+1)
+        const { datasetIndex, index } = element[0];
+        setEle(element)
+        setClickedElement(`${data.labels[index]} - ${data.datasets[datasetIndex].data[index]}`);
+    };
+
+    const getDatasetAtEvent = dataset => {
+        if (!dataset.length) return;
+        const datasetIndex = dataset[0].datasetIndex;
+        setClickedDataset(data.datasets[datasetIndex].label);
+    };
+
+    useEffect(() => {
+        if (clicked){
+            const c = prompt(`Enter new value for ${clickedDataset}'s ${clickedElement.split('-')[0]}:`,clickedElement.split('-')[1])
+            const { datasetIndex, index } = ele[0];
+            data.datasets[datasetIndex].data[index] = c
+        }
+    }, [clickedElement]);
+
     return (
         <div>
             <Bar
@@ -38,6 +67,8 @@ const BarGraphGroupedInner = (props) => {
                     },
 					maintainAspectRatio: false,
                 }}
+                getElementAtEvent={getElementAtEvent}
+                getDatasetAtEvent={getDatasetAtEvent}
             />
         </div>
     )
