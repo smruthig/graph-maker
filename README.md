@@ -10,7 +10,7 @@ For single variable: Pie chart, Doughnut, Polar area chart, Radar chart, Bar gra
 For 2 variables: Line chart, Scatter plot\
 For multiple datasets: Grouped bar chart
 
-Each of these graphs have animations, such as highlighting and giving information on the data over which the mouse-pointer hovers, hididng the dataset whose title is clicked on the legend (particularly useful for grouped bar charts), editing individual data for grouped bar charts, etc. 
+Each of these graphs have animations, such as highlighting and giving information on the data over which the mouse-pointer hovers, hiding the dataset whose title is clicked on the legend (particularly useful for grouped bar charts), editing individual data for grouped bar charts, etc. 
 
 ## How to use
 
