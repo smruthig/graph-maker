@@ -51,6 +51,8 @@ function App() {
   const mv_set_no_of_val = (n) => setMv_no_of_val(n)
   const [mv_val, setMv_Val] = useState([])
   const mv_set_val = (arr) => setMv_Val([...mv_val, arr])
+  const mv_edit_val = (arr) => setMv_Val(arr)
+  
   const [mv_label, setMv_Label] = useState([])
   const mv_set_label = (arr) => setMv_Label(arr)
   const [mv_title, setMv_Title] = useState('')
@@ -127,6 +129,7 @@ function App() {
               mv_set_no_of_val = {mv_set_no_of_val}
               mv_val = {mv_val}
               mv_set_val = {mv_set_val}
+              mv_edit_val = {mv_edit_val}
               mv_label = {mv_label}
               mv_set_label={mv_set_label}
               mv_title = {mv_title}

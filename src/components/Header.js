@@ -54,9 +54,9 @@ const Header = () => {
                         <Nav>
                             {/* <Nav.Link href="#about">About</Nav.Link>
                             <Nav.Link href="#contact">Contact Us</Nav.Link> */}
-                            <LinkContainer to='#'>
+                            {/* <LinkContainer to='#'>
                                 <Nav.Link>Animations</Nav.Link>
-                            </LinkContainer>
+                            </LinkContainer> */}
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

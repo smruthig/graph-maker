@@ -12,7 +12,7 @@ const BarGraphGroupedInner = (props) => {
     let datasets=[]
     for(var x=0;x<props.no_of_sets;x++)
     {
-        let o = new Object()
+        let o = {}
         o.label = props.data_title[i]
         o.data = props.val[i]
         o.backgroundColor = bgcol[i]
@@ -27,31 +27,47 @@ const BarGraphGroupedInner = (props) => {
 
     const [clickedDataset, setClickedDataset] = useState('');
     const [clickedElement, setClickedElement] = useState('');
+    //clicked is used to check that prompt doesn't come after entering new data
     const [clicked, setClicked] = useState(0)
-    const [ele, setEle] = useState()
+    //datasetInd is the index of which dataset it is
+    const [datasetInd, setDatasetInd] = useState()
+    //dataInd is the index of element number
+    const [dataInd, setDataInd] = useState()
     
     const getElementAtEvent = element => {
         if (!element.length) return;
         else 
             setClicked(clicked+1)
         const { datasetIndex, index } = element[0];
-        setEle(element)
+        setDataInd(index)
         setClickedElement(`${data.labels[index]} - ${data.datasets[datasetIndex].data[index]}`);
     };
 
     const getDatasetAtEvent = dataset => {
         if (!dataset.length) return;
         const datasetIndex = dataset[0].datasetIndex;
+        setDatasetInd(dataset[0].datasetIndex);
         setClickedDataset(data.datasets[datasetIndex].label);
     };
 
     useEffect(() => {
         if (clicked){
-            const c = prompt(`Enter new value for ${clickedDataset}'s ${clickedElement.split('-')[0]}:`,clickedElement.split('-')[1])
-            const { datasetIndex, index } = ele[0];
-            data.datasets[datasetIndex].data[index] = c
+            let c = prompt(`Enter new value for ${clickedDataset}'s ${clickedElement.split('-')[0]}:`,clickedElement.split('-')[1])
+            if (c===null)
+                c = Number(clickedElement.split('-')[1])
+            const arr = []
+            for(var x=0;x<props.val.length;x++){
+                console.log('props.val[x]',props.val[x])
+                arr.push(props.val[x])
+                if (x == datasetInd){
+                    console.log('before: ',arr[x])
+                    arr[x][dataInd] = Number(c)
+                    console.log('after: ',arr[x])
+                }
+            }
+            props.editVal(arr)
         }
-    }, [clickedElement]);
+    }, [clickedElement, clicked]);
 
     return (
         <div>

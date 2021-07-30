@@ -28,9 +28,11 @@ const BarGraphGrouped = (props) => {
                             no_of_sets={props.mv_no_of_sets}
                             no_of_val={props.mv_no_of_val}
                             val={props.mv_val}
+                            editVal = {props.mv_edit_val}
                             label={props.mv_label}
                             title={props.mv_title}
                             data_title={props.mv_data_title}
+                            setData_title={props.mv_set_data_title}
                         />
                     </>
                 :
